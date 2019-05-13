@@ -6,7 +6,7 @@
         <img src="./logo.png"
           alt="logo">
       </div>
-      <div class="main-header-title">Vue-UI-Docs</div>
+      <div class="main-header-title">Xan-UI-Docs</div>
       <ul class="main-header-nav">
         <li class="active">组件</li>
       </ul>
@@ -16,10 +16,12 @@
       <div class="main--left">
         <ul>
           <li>
-            <router-link to="/test">test 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/button">button 组件</router-link>
+            <a href="#">对话框</a>
+            <ul>
+              <li>
+                <router-link to="/uploadDialog">文件上传</router-link>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -27,7 +29,6 @@
         <router-view class="markdown"></router-view>
       </div>
     </div>
-
   </div>
 
 </template>

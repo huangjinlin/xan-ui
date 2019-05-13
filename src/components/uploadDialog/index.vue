@@ -51,14 +51,12 @@ export default {
     }
   },
   data () {
-    let headers = {}
-    headers[Vue.prototype.$XAN.tokenName] = _.isFunction(Vue.prototype.$XAN.tokenValue) ? Vue.prototype.$XAN.tokenValue() : Vue.prototype.$XAN.tokenValue
     return {
       visible: false,
       loading: false,
       fileType: ['xls', 'xlsx'],
       maxSize: 10,
-      headers: headers
+      headers: {}
     }
   },
   watch: {
@@ -69,6 +67,11 @@ export default {
   computed: {
   },
   methods: {
+    getHeaders () {
+      let r = {}
+      r[Vue.prototype.$XAN.tokenName] = _.isFunction(Vue.prototype.$XAN.tokenValue) ? Vue.prototype.$XAN.tokenValue() : Vue.prototype.$XAN.tokenValue
+      return r
+    },
     handleDownload() {
       window.location.href = this.option.downloadUrl
     },
@@ -78,7 +81,9 @@ export default {
       this.$refs.upload.clearFiles()
     },
     handleUpload(){
-      console.log('handleUpload', true)
+      if (_.isEmpty(this.headers)) {
+        this.headers = this.getHeaders()
+      }
       this.$refs.upload.submit()
     },
     show() {
@@ -125,6 +130,7 @@ export default {
       this.$message.error("文件导入失败：" + err.message)
       this.$emit('error',{status: false, result: err.message})
       this.loading = false
+      this.$refs.upload.clearFiles()
     }
   }
 }
