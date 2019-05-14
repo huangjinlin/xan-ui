@@ -15,7 +15,26 @@
     <div class="main-">
       <div class="main--left">
         <ul>
-          <li>
+          <li class="main--link-group">
+            <a href="#">基础</a>
+            <ul>
+              <li>
+                <router-link to="/icon">图标</router-link>
+              </li>
+            </ul>
+          </li>
+          <li class="main--link-group">
+            <a href="#">表单</a>
+            <ul>
+              <li>
+                <router-link to="/daterange">日期范围</router-link>
+              </li>
+              <li>
+                <router-link to="/datetimerange">日期时间范围</router-link>
+              </li>
+            </ul>
+          </li>
+          <li class="main--link-group">
             <a href="#">对话框</a>
             <ul>
               <li>
@@ -40,7 +59,13 @@ export default {
 </script>
 
 <style>
+@import '../src/components/iconfonts/demo.css';
 @import 'highlight.js/styles/color-brewer.css';
+.dib {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
 body {
   margin: 0;
   padding: 0;

@@ -1,9 +1,13 @@
 import './iconfonts/iconfont.css' // 图标 css
 
 import UploadDialog from './uploadDialog'
+import Daterange from './daterange'
+import Datetimerange from './datetimerange'
 import Waves from './waves'
 const components = [
-  UploadDialog
+  UploadDialog,
+  Daterange,
+  Datetimerange
 ]
 const directives = [
   Waves
